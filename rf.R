@@ -1,0 +1,38 @@
+library(readr)
+library(randomForest)
+library(foreach)
+library(parallel)
+library(doParallel)
+
+set.seed(1111)
+
+train <- read_csv("/home/yhuang/work/train1.csv")
+test  <- read_csv("/home/yhuang/work/test1.csv")
+
+
+###对随机森林数据进行采样
+feature.names <- names(train)[2:ncol(train)-1]
+ind   <- sample(nrow(train), 100000)
+train <- train[ind, ]
+
+cl <- makeCluster(14)
+registerDoParallel(cl)
+rf.model<- foreach(ntree=rep(100, 14), 
+                  .combine=combine,
+                  .packages='randomForest') %dopar%
+          randomForest(x = data.matrix(train[,feature.names]),y= train$target,
+		 # xtest=data.matrix(xtest[,feature.names]),ytest= xtest$target,
+		  nodesize=2,     ##larger causes smaller trees to be grown
+		  #keep.forest=TRUE,
+		ntree=ntree,importance=TRUE)
+stopCluster(cl)
+cat("making predictions in batches due to 8GB memory limitation\n")	
+submission <- data.frame(ID=test$ID)
+submission$target <- NA 
+for (rows in split(1:nrow(test), ceiling((1:nrow(test))/10000))) {
+    submission[rows, "target"] <- predict(rf.model, data.matrix(test[rows,feature.names]))
+}
+
+cat("saving the submission file\n")
+submission$target[submission$target<0]=0.09
+write_csv(submission, "/home/yhuang/work/sub_rf.csv")
