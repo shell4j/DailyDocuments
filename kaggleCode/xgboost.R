@@ -37,8 +37,6 @@ clf <- xgb.train(   params              = param,
                     maximize            = TRUE)
 				
 				
-				
-				
 #####模型预测提交				
 cat("making predictions in batches due to 8GB memory limitation\n")
 submission <- data.frame(ID=test$ID)

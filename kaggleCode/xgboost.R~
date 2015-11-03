@@ -11,9 +11,9 @@ test  <- read_csv("/home/yhuang/work/test1.csv")
 
 ##采样数据训练模型
 cat("sampling train to get around 8GB memory limitations\n")
-ind   <- sample(nrow(train), 80000)
+ind   <- sample(nrow(train), 140000)
 train <- train[ind, ]
-ind   <- sample(rep(1:2, 40000))
+ind   <- sample(rep(1:2, 70000))
 feature.names <- names(train)[2:ncol(train)-1]
 
 ##参数设置，将8w条数据分为两部分 在训练模型的时候进行交叉验证 
