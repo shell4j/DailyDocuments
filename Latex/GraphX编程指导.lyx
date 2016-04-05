@@ -1,0 +1,133 @@
+#LyX 2.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 474
+\begin_document
+\begin_header
+\textclass paper
+\begin_preamble
+% 如果没有这一句命令，XeTeX会出错，原因参见
+% http://bbs.ctex.org/viewthread.php?tid=60547
+\DeclareRobustCommand\nobreakspace{\leavevmode\nobreak\ }
+\usepackage{xeCJK}
+\setCJKmainfont{WenQuanYi Zen Hei} 
+\XeTeXlinebreaklocale "zh"
+\XeTeXlinebreakskip = 0pt plus 1pt
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_math auto
+\font_default_family default
+\use_non_tex_fonts true
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\default_output_format pdf4
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+
+\lang chinese-simplified
+GraphX翻译指南
+\end_layout
+
+\begin_layout Author
+
+\lang chinese-simplified
+黄勇
+\end_layout
+
+\begin_layout Section
+
+\lang chinese-simplified
+GraphX属性图模型
+\end_layout
+
+\begin_layout Standard
+
+\lang chinese-simplified
+Spark GraphX基于属性图模型构建图算法。属性图指图的属性和边都可以设置属性，此外，GraphX除了继承一些基础的图操作（如子图、节点合并、信息聚集等）
+、实现Pregal API 等算法，也包括一系列的正在增长的图算法集合，从而可以简化图分析任务。
+\end_layout
+
+\begin_layout Standard
+
+\lang chinese-simplified
+GraphX继承了Spark的RDD（全称为Resilient Distributed Datasets，是一个容错的、并行的数据结构，可以让用户显式地将数据存
+储到磁盘和内存中，并能控制数据的分区。同时，RDD还提供了一组丰富的操作来操作这些数据。在这些操作中，诸如map、flatMap、filter等转换操作实现了m
+onad模式，很好地契合了Scala的集合操作），并建立了高层次的抽象模型。
+\end_layout
+
+\begin_layout Section
+
+\lang chinese-simplified
+GraphX基本图操作
+\end_layout
+
+\begin_layout Section
+
+\lang chinese-simplified
+Spark Streaming 简介
+\end_layout
+
+\begin_layout Section
+
+\lang chinese-simplified
+Spark Core简介 
+\end_layout
+
+\end_body
+\end_document
