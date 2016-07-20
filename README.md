@@ -1,2 +1,2 @@
-# DailyDocuments
-sharing my own blogs about Knowledge Graph &amp; MySQL/NoSQL &amp; Java/python/R
+### DailyDocuments
+保存学习资料，论文笔记等。
